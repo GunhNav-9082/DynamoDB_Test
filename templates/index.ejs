@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+    <h2 class="h1">DANH SÁCH CÁC MÔN HỌC</h2>
+    <form border="1" style="margin-left: 430px" id="create" method="POST" action="/" enctype="multipart/form-data">
+      <input type="number" name="stt" placeholder="STT" />
+      <input type="text" name="ma_mh" placeholder="Tên Môn Học" />
+      <input type="text" name="loai" placeholder="Loại Môn" />
+      <input type="text" name="hoc_ky" placeholder="Học Kỳ" />
+      <input type="text" name="khoa" placeholder="Khoa" />
+      <input type="submit" value="Submit" />
+      </form>
+      <form id="delete" method="POST" action="/delete" enctype="multipart/form-data">
+      <div style="margin-left: 1335px"><input type="submit" value="Delete " /> </div>
+    <br/>
+    <table style="margin-left: 500px" border="1" width="800" height="250">
+      <tr class="tag">
+        <td>STT</td>
+        <td>Tên Môn Học</td>
+        <td>Loại</td>
+        <td>Học Kỳ</td>
+        <td>Khoa</td>
+        <td>Chọn</td>
+      </tr>
+      <% for (let i = 0; i < monHocs.length; i++) { %>
+      <tr>
+        <td><%=monHocs[i].stt%></td>
+        <td><%=monHocs[i].ma_mh%></td>
+        <td><%=monHocs[i].loai%></td>
+        <td><%=monHocs[i].hoc_ky%></td>
+        <td><%=monHocs[i].khoa%></td>
+        <td><input type="checkbox" name="<%=monHocs[i].ma_mh%>" /></td>
+      </tr>
+      <% } %>
+    </table>
+  </form>
+  </body>
+</html>
